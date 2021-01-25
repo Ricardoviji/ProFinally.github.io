@@ -11,11 +11,11 @@ class MiNav extends HTMLElement {
    */
   protege(privilegios) {
     let html = "";
-    if (privilegios.has("Pasatiempos")) {
-      html += /* html */ `<li><a href="pasatiempos.html">Pasatiempos</a></li>`;
+    if (privilegios.has("Verduras")) {
+      html += /* html */ `<li><a href="verduras.html">Verduras</a></li>`;
     }
-    if (privilegios.has("Usuarios")) {
-      html += /* html */ `<li><a href="usuarios.html">Usuarios</a></li>`;
+    if (privilegios.has("Frutas")) {
+      html += /* html */ `<li><a href="frutas.html">Frutas</a></li>`;
     }
     this.ul.innerHTML += html;
   }
