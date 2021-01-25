@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pasatiempo</title>
+    <title>Verdura</title>
     <script
       src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
     <script
@@ -21,8 +21,8 @@
     <form id="forma">
       <mi-nav id="miNav"></mi-nav>
       <header>
-        <a href="pasatiempos.html">Cancelar</a>
-        <h1>Pasatiempo</h1>
+        <a href="verduras.html">Cancelar</a>
+        <h1>Verduras</h1>
         <button type="submit">Guardar</button>
         <button id="eliminar" type="button">Eliminar</button>
       </header>
@@ -61,7 +61,7 @@
       /** Busca y muestra los datos que corresponden al id recibido. */
       async function busca() {
         try {
-          const modelo = await ctrlPasatiempos.busca(id);
+          const modelo = await ctrlVerduras.busca(id);
           forma.nombre.value = modelo.nombre;
           forma.addEventListener("submit", guarda);
           eliminar.addEventListener("click", elimina);
@@ -79,8 +79,8 @@
             id,
             nombre: data.get("nombre")
           });
-          await ctrlPasatiempos.modifica(modelo);
-          muestraPasatiempos();
+          await ctrlVerduras.modifica(modelo);
+          muestraVerduras();
         } catch (error) {
           muestraError(error);
         }
@@ -89,8 +89,8 @@
       async function elimina() {
         try {
           if (confirm("Confirmar la eliminación")) {
-            await ctrlPasatiempos.elimina(id);
-            muestraPasatiempos();
+            await ctrlVerduras.elimina(id);
+            muestraVerduras();
           }
         } catch (e) {
           procesaError(e);
