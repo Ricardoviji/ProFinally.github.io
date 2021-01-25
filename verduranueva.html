@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pasatiempo Nuevo</title>
+    <title>Verdura Nueva</title>
     <script
       src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
     <script
@@ -21,8 +21,8 @@
     <form id="forma">
       <mi-nav id="miNav"></mi-nav>
       <header>
-        <a href="pasatiempos.html">Cancelar</a>
-        <h1>Pasatiempo Nuevo</h1>
+        <a href="verdura.html">Cancelar</a>
+        <h1>Verdura Nueva</h1>
         <button type="submit">Guardar</button>
       </header>
       <p><label>Nombre <input name="nombre" type="text"></label></p>
@@ -35,7 +35,7 @@
       import { muestraPasatiempos, muestraSesión } from "./js/navegacion.js";
 
       const ctrlSesión = Fábrica.instancia.ctrlSesión;
-      const ctrlPasatiempos = Fábrica.instancia.ctrlPasatiempos;
+      const ctrlVerdura = Fábrica.instancia.ctrlVerdura;
 
       protege();
       async function protege() {
@@ -54,12 +54,12 @@
         try {
           evt.preventDefault();
           const data = new FormData(forma);
-          const modelo = new InfoPasatiempo({
+          const modelo = new InfoVerdura({
             id: null,
             nombre: data.get("nombre")
           });
-          await ctrlPasatiempos.agrega(modelo);
-          muestraPasatiempos();
+          await ctrlVerdura.agrega(modelo);
+          muestraVerdura();
         } catch (error) {
           muestraError(error);
         }
